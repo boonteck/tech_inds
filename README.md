@@ -1,6 +1,8 @@
 # tech_inds
 Build indicators for stock markets for technical analysis. Optimized with Numba, takes and returns numpy arrays as outputs.
-For a comprehensive package see https://github.com/mrjbq7/ta-lib
+
+This is an experimental piece aimed at understanding usage of Numba and calculation of common technical indicators.
+For a comprehensive package with faster implementation in Cython, see https://github.com/mrjbq7/ta-lib
 
 <h3>Financial Indicators included:</h3>
 
