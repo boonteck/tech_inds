@@ -70,7 +70,7 @@ def MACD(arr, fast_period=12, slow_period=26, signal_period=9, percent = True):
     macd = fast_EMA - slow_EMA
     if (percent):
         macd *= 100 / slow_EMA
-    signal = np.concatenate((macd[:slow_period-1],TI_EMA(macd[slow_period-1:],signal_period)))
+    signal = np.concatenate((macd[:slow_period-1],EMA(macd[slow_period-1:],signal_period)))
     hist = macd - signal
     return((macd, signal, hist))
 
@@ -84,7 +84,7 @@ def RSI(arr, period = 21):
     # Exponential Weighted windows mean with centre of mass = period - 1 -> alpha = 1 / (period)
     alpha = 1 / (period)
     rUp = EMA(up, period, alpha = alpha)
-    rDown = np.abs(TI_EMA(down, period, alpha = alpha))
+    rDown = np.abs(EMA(down, period, alpha = alpha))
     result = 100 - (100 / (1+ rUp / rDown))
     
     #append nan that was lost in np.diff
