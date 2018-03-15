@@ -152,5 +152,5 @@ def ROC(arr, period = 1, continuous_compound = True):
         result = np.log(arr[period:] / arr[:-period]) * 100
     else:
         result = (arr[period:] - arr[:-period]) /arr[:-period] * 100
-    result = np.concatenate((np.array([np.nan] * (period-1)), result))
+    result = np.concatenate((np.array([np.nan] * period), result))
     return(result)
